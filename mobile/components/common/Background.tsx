@@ -8,7 +8,7 @@ export default function Background() {
       <Image 
         source={require('@assets/gradient-background.png')} 
         style={{width: '100%', height: '100%'}} 
-        contentFit="contain"
+        contentFit="cover"
       />
     </View>
   );
