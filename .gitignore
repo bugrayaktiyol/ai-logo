@@ -54,3 +54,6 @@ api/build/
 api/coverage/
 api/.env
 api/.env.*
+
+# Firestore debug logs
+firestore-debug.log*
