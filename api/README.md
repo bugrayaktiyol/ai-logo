@@ -1,89 +1,114 @@
 # AI Logo API
 
-Backend API for the AI Logo project.
+This project provides a set of Firebase Cloud Functions for generating logos using AI. The project is structured according to Clean Architecture principles.
 
-## Features
+## Project Structure
 
-- Logo generation based on prompt and style
-- Firebase Functions integration
-- Firestore database for storing logos and styles
-
-## Setup
-
-1. Install dependencies:
-
-```bash
-npm install
-```
-
-2. Create a `.env` file with the following variables:
+The project is organized following Clean Architecture principles:
 
 ```
-PORT=3000
+api/functions/src/
+├── index.ts                # Main entry point
+└── features/
+    └── logo/              # Logo feature
+        ├── controller.ts  # HTTP endpoints and request handling
+        ├── service.ts     # Business logic
+        ├── repository.ts  # Data access layer
+        └── model.ts       # Data models
 ```
 
-3. Build the project:
+### Layers
 
-```bash
-npm run build
+- **Model**: Contains data structures and interfaces
+- **Repository**: Database operations and data access
+- **Service**: Business logic and business rules
+- **Controller**: HTTP request handling and response generation
+
+## Technologies
+
+- Firebase Cloud Functions (Node.js 20)
+- TypeScript
+- Firestore
+
+## Functions
+
+### createLogo
+
+Sends a request to create a new logo.
+
+**Request**:
+```json
+{
+  "prompt": "Description for the logo",
+  "style": "Logo style"
+}
 ```
 
-4. Start the development server:
-
-```bash
-npm run dev
+**Response**:
+```json
+{
+  "id": "generated-logo-id"
+}
 ```
 
-## Firebase Functions
+### getLogo
 
-This project includes Firebase Functions for logo generation. To deploy the functions:
+Gets logo information by ID.
 
-1. Install the Firebase CLI:
-
-```bash
-npm install -g firebase-tools
+**Request**:
+```json
+{
+  "id": "logo-id"
+}
 ```
 
-2. Login to Firebase:
-
-```bash
-firebase login
+**Response**:
+```json
+{
+  "id": "logo-id",
+  "prompt": "Description for the logo",
+  "style": "Logo style",
+  "imageUrl": "https://example.com/image.jpg",
+  "status": "completed",
+  "createdAt": "2023-01-01T00:00:00.000Z"
+}
 ```
-
-3. Initialize Firebase (if not already done):
-
-```bash
-firebase init functions
-```
-
-4. Deploy the functions:
-
-```bash
-npm run deploy
-```
-
-## API Endpoints
-
-### Express API
-
-- `GET /`: Health check
-- `GET /api/logo-styles`: Get all logo styles
-- `POST /api/generate-logo`: Generate a logo
-- `GET /api/logos/:id`: Get a logo by ID
-- `GET /api/logos`: Get all logos
-
-### Firebase Functions
-
-- `getLogoStyles`: Get all logo styles
-- `generateLogo`: Generate a logo
-- `getLogoById`: Get a logo by ID
 
 ## Development
 
-To run the Firebase emulators:
+### Setup
+
+```bash
+cd api/functions
+npm install
+```
+
+### Local Development
 
 ```bash
 npm run serve
 ```
 
-This will start the Firebase emulators for local development. 
+### Build
+
+```bash
+npm run build
+```
+
+### Deployment
+
+```bash
+npm run deploy
+```
+
+## Error Codes
+
+- `Logo ID must be a string.`: Invalid logo ID format
+- `Logo not found.`: Logo with the specified ID not found
+- `Eksik veri: prompt ve style alanları zorunludur.`: Required fields are missing
+- `Test amaçlı hata fırlatıldı`: Error thrown for testing purposes (triggered with the "error" prompt)
+
+## Logo Statuses
+
+- `pending`: Logo generation process is in progress
+- `completed`: Logo generation is completed
