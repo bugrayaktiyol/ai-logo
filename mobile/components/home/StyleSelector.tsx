@@ -52,6 +52,7 @@ export default function StyleSelector({ selectedStyle, onSelectStyle }: StyleSel
           estimatedItemSize={100}
           showsHorizontalScrollIndicator={false}
           extraData={selectedStyle.id}
+          contentContainerStyle={styles.flashListContent}
         />
       </View>
     </View>
@@ -72,6 +73,10 @@ const styles = StyleSheet.create({
   },
   flashListContainer: {
     height: 150,
+    marginHorizontal: -24,
+  },
+  flashListContent: {
+    paddingHorizontal: 24,
   },
   styleItem: {
     alignItems: 'center',

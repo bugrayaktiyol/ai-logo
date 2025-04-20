@@ -54,10 +54,12 @@ export default function HomeScreen() {
             onChangePrompt={setPrompt}
           />
 
-          <StyleSelector
-            selectedStyle={selectedStyle}
-            onSelectStyle={handleStyleSelect}
-          />
+          <View style={styles.styleSelectorWrapper}>
+            <StyleSelector
+              selectedStyle={selectedStyle}
+              onSelectStyle={handleStyleSelect}
+            />
+          </View>
         </View>
 
         <View style={styles.buttonContainer}>
@@ -85,6 +87,10 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
+  },
+  styleSelectorWrapper: {
+    paddingHorizontal: 24,
+    marginHorizontal: -24,
   },
   buttonContainer: {
     width: '100%',
