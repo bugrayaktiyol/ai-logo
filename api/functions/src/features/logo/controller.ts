@@ -26,8 +26,7 @@ export const createLogo = onCall({ region: "europe-west1" }, async (request) => 
   const data = request.data as CreateLogoRequest;
   try {
     if (!data || !data.prompt || !data.style) {
-      console.log("Eksik veri:", data);
-      throw new Error("Eksik veri: prompt ve style alanları zorunludur.");
+      throw new Error("Missing data: prompt and style are required.");
     }
 
     const logoId = await logoService.createLogo(data);
