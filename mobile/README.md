@@ -1,50 +1,105 @@
-# Welcome to your Expo app 👋
+# AI Logo Generator Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform mobile application built with Expo and React Native that allows users to generate logos using AI technology.
 
-## Get started
+## 🌟 Features
 
-1. Install dependencies
+- Generate custom logos based on user prompts
+- Choose from various logo styles
+- Preview and download generated logos
+- Save favorite designs to your account
+- Cross-platform (iOS, Android, Web)
 
+## 🛠️ Tech Stack
+
+- [Expo](https://expo.dev/) - React Native framework
+- [Expo Router](https://docs.expo.dev/router/introduction/) - File-based routing
+- [Firebase](https://firebase.google.com/) - Authentication and backend services
+- [Zustand](https://github.com/pmndrs/zustand) - State management
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (>=18.x)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/) 
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone <repository-url>
+   cd ai-logo/mobile
+   ```
+
+2. Install dependencies
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Setup environment variables
+   Create a `.env` file in the mobile directory with required Firebase configuration
 
+4. Start the development server
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## 📱 Running the App
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **iOS**: Press `i` in the terminal or use the Expo Go app
+- **Android**: Press `a` in the terminal or use the Expo Go app
+- **Web**: Press `w` in the terminal
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+mobile/
+├── app/                 # Main application screens using Expo Router
+├── components/          # Reusable UI components
+├── hooks/               # Custom React hooks
+├── layouts/             # Layout components
+├── assets/              # Static assets
+├── types/               # TypeScript type definitions
+├── data/                # Data models and mock data
+└── service-account/     # Firebase service account credentials
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🧪 Development
 
-## Learn more
+### Running Tests
+```bash
+npm test
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### Linting
+```bash
+npm run lint
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 📄 API Integration
 
-## Join the community
+This mobile app integrates with a Firebase backend to generate logos. The API provides the following endpoints:
 
-Join our community of developers creating universal apps.
+- `createLogo`: Sends a request to create a new logo
+- `getLogo`: Gets information about a generated logo
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+For more details, refer to the API documentation in the `api/` directory.
+
+## 📦 Building for Production
+
+### Creating a Production Build
+```bash
+npx expo prebuild
+```
+
+### Building for iOS
+```bash
+npx expo run:ios
+```
+
+### Building for Android
+```bash
+npx expo run:android
+```
