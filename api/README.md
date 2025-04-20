@@ -105,8 +105,8 @@ npm run deploy
 
 - `Logo ID must be a string.`: Invalid logo ID format
 - `Logo not found.`: Logo with the specified ID not found
-- `Eksik veri: prompt ve style alanları zorunludur.`: Required fields are missing
-- `Test amaçlı hata fırlatıldı`: Error thrown for testing purposes (triggered with the "error" prompt)
+- `Missing data: prompt and style fields are required.`: Required fields are missing
+- `Test purpose error thrown`: Error thrown for testing purposes (triggered with the "error" prompt)
 
 ## Logo Statuses
 
